@@ -9,7 +9,6 @@ import perlist from "../database/MBTIPersonality";
 import Result from "../database/Result.js";
 
 function MBTITest() {
-  // const question = require("../database/MBTIQuest");
   const list = questions;
   // const perlist = require("../database/MBTIPersonality");
   const [per, setPer] = useState({});
@@ -104,14 +103,17 @@ function MBTITest() {
     <>
       <div className="body">
         <div className="screen-title">Trắc nghiệm MBTI</div>
+
         {list.map((item) => (
           <Card Ques={item} key={item.content} />
         ))}
-        <div>
-          <button className="primary-btn font-18 align-center" onClick={result}>Xem kết quả</button>
+        
+        <div className="flex-row align-center width-fit-content">
+          <Link to={`/majorResult?mbtiResult=${result}`} className="primary-btn font-18 width-45 margin-right-3rem">Quay về nhập kết quả</Link>
+          <button className="primary-btn font-18" onClick={result}>Xem kết quả</button>
         </div>
-        <Link to={`/majorResult?mbtiResult=${result}`}><button>Quay về nhập kết quả</button></Link>
       </div>
+
       <Panel Data={per} />
     </>
   );

@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
-import Dropdown from 'react-dropdown';
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from "react-router-dom";
+import Dropdown from 'react-dropdown';
 import axios from 'axios';
 import DataTable from 'react-data-table-component';
 
@@ -14,8 +13,6 @@ function MajorResult() {
     "ISTJ - Người trách nhiệm", "ISFJ - Người nuôi dưỡng", "INFJ - Nhà tư vấn", "INTJ - Nhà khoa học",
     "ISTP - Nhà kỹ thuật", "ISFP - Người nghệ sĩ", "INFP - Người lý tưởng hóa", "INTP - Nhà triết học",
   ];
-
-  // const mbtiDefault = "Chọn nhóm tính cách MBTI của bạn";
 
   const careerOptions = [
     "Nông nghiệp, Thực phẩm và Tài nguyên thiên nhiên",
@@ -36,8 +33,6 @@ function MajorResult() {
     "Phân phối và hậu cần",
   ];
 
-  // const careerDefault = "Chọn nhóm ngành yêu thích của bạn";
-
   const calcOptions = [
     {
       id: "1",
@@ -52,7 +47,6 @@ function MajorResult() {
   const onSelected = (answerId) => {
     var radioInput = document.getElementById(answerId);
     radioInput.checked = true;
-    
   }
 
   const { mbtiResult } = useParams();
@@ -61,12 +55,8 @@ function MajorResult() {
   const [mbtiValue, setMbtiValue] = useState(mbtiResult || '');
   const [careerValue, setCareerValue] = useState(ccResult || '');
   const [calcMethod, setCalcMethod] = useState('');
-  // const [tableData, setTableData] = useState([]);
   const [result, setResult] = useState([]);
   const [recom, setRecom] = useState([]);
-  // const [rowData, setRowData] = useState([]);
-
-
 
   useEffect(() => {
     const mbtiResult = Result.getMbti(); // Lấy giá trị MBTI từ result.js
@@ -159,20 +149,18 @@ function MajorResult() {
           <Dropdown className="dropdown dropdown-block" options={mbtiOptions} value={mbtiValue} onChange={handleMbtiChange} placeholder="Chọn nhóm tính tách MBTI" />
           <Link className="primary-outline-btn font-18 margin-left-20 flex-self-start" to="/mbti">Kiểm tra ngay</Link>
         </div>
-        
       </div>
 
       <div className="margin-top-1rem flex-row flex-items-start">
-        <div className="font-18 semi-bold-txt left-res-block">Nhóm ngành yêu thích:</div>
+        <div className="font-18 semi-bold-txt left-res-block">Khám phá năng lực nghề nghiệp:</div>
         <div className="flex-row flex-space-between right-res-block">
           <Dropdown className="dropdown dropdown-block" options={careerOptions} value={careerValue} onChange={handleCareerChange} placeholder="Chọn nhóm ngành phù hợp" />
           <Link className="primary-outline-btn font-18 margin-left-20 flex-self-start" to="/career" >Kiểm tra ngay</Link>
         </div>
-        
       </div>
 
       <div className="margin-top-1rem flex-row flex-items-center">
-        <div className="font-18 semi-bold-txt left-res-block">Chọn cách tính:</div>
+        <div className="font-18 semi-bold-txt left-res-block">Chọn phương pháp tính:</div>
         <div className="right-res-block">
           <input
             type="radio"
@@ -197,46 +185,47 @@ function MajorResult() {
             }}
           />
           <label htmlFor="VIKOR" className="font-18">{calcOptions[1].title}</label>
-
         </div>
       </div>
 
-      <div className="margin-top-2rem">
-        <button className="primary-btn font-18 align-center" onClick={handleViewResult}>Gửi kết quả</button>
+      <button className="primary-btn font-18 align-center margin-top-2rem test" onClick={handleViewResult}>Gửi kết quả</button>
+      
+      <div className="res-block">
+        {result.length > 0 ? <>
+          <hr className="seperate-line" />
+          <div className="screen-title margin-top-2rem">Bảng kết quả </div>
+        </> : <></>}
+
         {result.length > 0 && calcMethod === 'Weighted Sum' &&(
-          <>
-            <h1>Result Table</h1>
-            <DataTable
-              title="Weighted Sum Result Table"
-              columns={WeightsumColumns}
-              data={result}
-            />
-          </>
+          <DataTable
+            title="Weighted Sum"
+            columns={WeightsumColumns}
+            data={result}
+            striped
+          />
         )}
 
         {result.length > 0 && calcMethod === 'VIKOR' &&(
+          <DataTable
+            title="VIKOR"
+            columns={VikorColumns}
+            data={result}
+            striped
+          />
+        )}
+      </div>
+      
+      <div className="res-block">
+        {recom.length > 0 && (
           <>
-            <h1>Result Table</h1>
+            <div className="screen-title margin-top-2rem">Recommendation Table</div>
             <DataTable
-              title="VIKOR Result Table"
-              columns={VikorColumns}
-              data={result}
+              columns={recomColumns}
+              data={recom}
+              striped
             />
           </>
         )}
-
-        {recom.length > 0 && (
-          <>
-            <h1>Recommendation Table</h1>
-            <DataTable 
-              title="Recommendation Table"
-              columns={recomColumns}
-              data={recom}
-            />
-          </>
-        )
-        } 
-
       </div>
 
       <div className="res-block"></div>
