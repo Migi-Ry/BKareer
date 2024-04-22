@@ -96,22 +96,24 @@ function MajorResult() {
     { name: 'Jobs', selector: row=>row.Jobs},
     { name: 'Salary_AVG_VND', selector: row=>row.Salary_AVG_VND},
     { name: 'Number (thousands)', selector: row=>row["Number(thoundsand)"] },
-    { name: 'MBTI Score', selector: row=>row.mbti_score},
-    { name: 'Major Score', selector: row=>row.major_score},
-    { name: 'Salary Score', selector: row=>row.s_salary},
-    { name: 'Job Score', selector: row=>row.s_job},
-    { name: 'Total Score', selector: row=>row.s_total},
-    { name: 'Relative Total', selector: row=>row.r_total},
-    { name: 'Q Total', selector: row=>row.q_total}
+    // { name: 'mbti_score', selector: row=>row.mbti_score},
+    // { name: 'major_score', selector: row=>row.major_score},
+    { name: 's_mbti', selector: row=>row.s_mbti},
+    { name: 's_cc', selector: row=>row.s_major},
+    { name: 's_salary ', selector: row=>row.s_salary},
+    { name: 's_job', selector: row=>row.s_job},
+    { name: 's_total', selector: row=>row.s_total},
+    { name: 'r_total', selector: row=>row.r_total},
+    { name: 'q_total', selector: row=>row.q_total}
   ];
 
   const WeightsumColumns = [
     { name: "Jobs" , selector: row=>row.Jobs },
     { name: "Salary_AVG_VND", selector: row=>row.Salary_AVG_VND},
     { name: "Number(thoundsand)", selector: row=>row["Number(thoundsand)"]},
-    { name: "MBTI Score", selector: row=>row.mbti_score},
-    { name: "Major Score", selector: row=>row.major_score},
-    { name: "Ikigai Score", selector: row=>row.ikigai_score},
+    { name: "mbti_score", selector: row=>row.mbti_score},
+    { name: "major_score", selector: row=>row.major_score},
+    { name: "ikigai_score", selector: row=>row.ikigai_score},
   ]
 
   const recomColumns = [
