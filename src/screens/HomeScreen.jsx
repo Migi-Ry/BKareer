@@ -25,7 +25,7 @@ function HomeScreen() {
             <div className="card flex-row flex-space-between flex-items-center">
               <div className="width-45 flex-col flex-self-start">
                 <div className="card-title">Ikigai</div>
-                <div className="card-content">Fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem sed euismod placerat. Vivamus porttitor et magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper lorem ipsum.</div>
+                <div className="card-content">Ikigai là một khái niệm sống gắn liền với niềm đam mê, mục tiêu, giá trị và sự hài lòng. Đây cũng chính là bí quyết sống trường thọ và hạnh phúc của người Nhật Bản.</div>
                 <Link className="secondary-outline-btn" to="/ikigai">Tìm hiểu thêm</Link>
               </div>
               <img src={image2} className="img-home-2"/>

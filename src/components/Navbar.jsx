@@ -1,6 +1,8 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 
 import HomeScreen from "../screens/HomeScreen";
+import Login from "../screens/authentication/LoginScreen";
+import Register from "../screens/authentication/RegisterScreen";
 import MBTITest from "../screens/MBTIScreen";
 import CCTest from "../screens/CareerClusterScreen";
 import News from "../screens/NewsScreen";
@@ -25,13 +27,15 @@ function Navbar() {
             <li className="font-18"><Link to="/mbti">Trắc nghiệm MBTI</Link></li>
             <li className="font-18"><Link to="/career">Khám phá năng lực nghề nghiệp</Link></li>
             <li className="font-18"><Link to="/news">Tin tức</Link></li>
-            <button className="white-outline-btn font-18" type="button">Đăng nhập</button>
+            <button className="white-outline-btn font-18">Đăng nhập</button>
           </ul>
         </nav>
       </>
 
       <Routes>
         <Route path="/" element={<HomeScreen />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/majorTest" element={<MajorTest />} />
         <Route path="/majorResult" element={<MajorResult />} />
         <Route path="/ikigai" element={<Ikigai />} />

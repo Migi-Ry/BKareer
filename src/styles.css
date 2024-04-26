@@ -4,18 +4,23 @@
 }
 
 @font-face {
+  font-family: "Nunito_Sans_10pt_Condensed_Light";
+  src: url("./assets/fonts/NunitoSans_10pt_Condensed-Light.ttf");
+}
+
+@font-face {
 	font-family: "Nunito_Sans_10pt_Condensed_Regular";
 	src: url("./assets/fonts/NunitoSans_10pt_Condensed-Regular.ttf");
 }
 
 @font-face {
-	font-family: "Nunito_Sans_10pt_Condensed_Bold";
-	src: url("./assets/fonts/NunitoSans_10pt_Condensed-Bold.ttf");
+  font-family: "Nunito_Sans_10pt_Condensed_SemiBold";
+  src: url("./assets/fonts/NunitoSans_10pt_Condensed-SemiBold.ttf");
 }
 
 @font-face {
-  font-family: "Nunito_Sans_10pt_Condensed_SemiBold";
-  src: url("./assets/fonts/NunitoSans_10pt_Condensed-SemiBold.ttf");
+	font-family: "Nunito_Sans_10pt_Condensed_Bold";
+	src: url("./assets/fonts/NunitoSans_10pt_Condensed-Bold.ttf");
 }
 
 .test {
@@ -37,7 +42,7 @@ body {
 /* Body Style */
 .body {
   background-color: #F5F5F5;
-  margin: 5rem 8rem;
+  margin: 10rem 8rem 5rem 8rem; /* 5rem top-down + 5rem sticky navbar */
 }
 
 .screen-block {
@@ -52,6 +57,10 @@ body {
 
 .semi-bold-txt {
   font-family: Nunito_Sans_10pt_Condensed_SemiBold;
+}
+
+.light-txt {
+  font-family: Nunito_Sans_10pt_Condensed_Light;
 }
 
 /* Font Size */
@@ -131,6 +140,14 @@ body {
   margin-top: 2rem;
 }
 
+.margin-top-10 {
+  margin-top: 10%;
+}
+
+.margin-top-12 {
+  margin-top: 12%;
+}
+
 .margin-right-3rem {
   margin-right: 5rem;
 }
@@ -149,6 +166,10 @@ body {
 
 .width-45 {
   width: 45%;
+}
+
+.width-100 {
+  width: 100%;
 }
 
 .width-fit-content {
@@ -179,6 +200,9 @@ body {
 
 /* Navbar */
 #nav {
+  position: fixed;
+  top: 0;
+  width: 90vw;
   background-color: #358bca;
   line-height: 2;
   display: flex;
@@ -282,6 +306,76 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* Login Screen */
+.appName-block {
+  flex: 3;
+  height: 100vh;
+  background-image: linear-gradient(#DBF0FF, #358BCA);
+}
+
+.img-login {
+  width: 60%;
+  height: fit-content;
+}
+
+.appName-login {
+  font-family: Jomhuria;
+  font-size: 6.5rem;
+  color: white;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+.app-slogan-txt {
+  color: white;
+  margin-top: -3.5rem;
+  font-family: Nunito_Sans_10pt_Condensed_Light;
+  font-size: 1.5rem;
+}
+
+.login-title-txt {
+  color: #358BCA;
+  font-family: Nunito_Sans_10pt_Condensed_Bold;
+  font-size: 2rem;
+  margin-bottom: 15%;
+}
+
+.form-block {
+  flex: 2;
+  background-color: white;
+  padding: 7rem 6rem;
+}
+
+.input-field {
+  color: #358BCA;
+  border: 1px solid #358BCA;
+  border-radius: 10px;
+  padding: 1.5rem 0rem 1.5rem 1rem;
+  margin-bottom: 2%;
+}
+
+.input-field:focus {
+  outline: none !important;
+  border:1px solid #358BCA;
+  box-shadow: 0 0 5px #719ECE;
+}
+
+::placeholder {
+  font-family: Nunito_Sans_10pt_Condensed_Regular;
+  font-size: 18px;
+  color: #358BCA;
+  opacity: 1;
+}
+
+.login-checkbox {
+  margin-left: 0px;
+  vertical-align: middle;
+  accent-color: #358BCA;
+}
+
+/* Register Screen */
+
+
 /* MBTI Screen */
 .question-card {
   background-color: white;
@@ -327,7 +421,7 @@ body {
 }
 
 .answer_item:hover {
-  background-color: #ffffff;
+  background-color: white;
   border-color: #142531;
   color: #142531;
 }
@@ -338,48 +432,72 @@ body {
   border: 0;
 }
 
-.Panel {
+/* Panel */
+.panel {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Màu đen với độ trong suốt 70% (0.7) */
+  background-color: #00000080; /* Màu đen với độ trong suốt 70% (0.7) */
   justify-content: center;
   align-items: center;
   display: none;
 }
 
-.result_form {
+.result-form {
   width: 70%;
   background-color: white;
   border-radius: 20px;
   overflow: hidden;
 }
 
-.panel_info {
-  padding: 32px;
+.panel-info {
+  padding: 2.5rem;
+  background-color: white;
 }
 
-.panel_info p {
-  font-size: 13px;
+.panel-info p {
+  font-size: 16px;
+  color: #666;
 }
+
+.panel-img-container {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+.panel-img{
+  width: 100%;
+
+}
+
+.panel-script {
+  color: #444;
+  font-family: Nunito_Sans_10pt_Condensed_SemiBold;
+  font-size: 18px;
+}
+
+.panel-title {
+  color: #358BCA;
+  font-family: Nunito_Sans_10pt_Condensed_Bold;
+  font-size: 28px;
+}
+
 .info {
-  background-color: antiquewhite;
+  background-color: white;
   padding: 10px;
   border-radius: 10px;
 }
+
 .hero {
+  flex: 5;
   display: flex;
   justify-content: center;
   align-items: center;
   column-gap: 20px;
-}
-
-.hero span {
-  font-weight: "bold";
-  font-size: 20px;
 }
 
 /* Career Cluster Screen */
@@ -449,6 +567,17 @@ body {
   margin-top: 4rem;
 }
 
+/* Detail Screens */
+.detail-txt {
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.detail-txt ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
 /* Images */
 .img-home-1 {
   width: 45%;
@@ -470,9 +599,16 @@ body {
   margin-bottom: 1rem;
 }
 
-.img {
+.img-detail {
+  width: 35%;
+  margin: auto;
+  display: block;
+}
+
+.close-panel-icon {
   float: right;
   cursor: pointer;
+  padding: 1.5rem 1.5rem;
 }
 
 /* Dropdown */
