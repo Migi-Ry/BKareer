@@ -76,9 +76,6 @@ function CCTest() {
   const highestScoredMajor = mapHighestScoredItemToMajor(highestScoredItemIndex); // Ánh xạ ô có điểm cao nhất vào nhóm ngành tương ứng
   console.log("Nhóm ngành có điểm cao nhất là:", highestScoredMajor);
 
-  Result.setCc(highestScoredMajor);
-  console.log(Result.getCc());
-
   return (
     <>
       <body className="body">

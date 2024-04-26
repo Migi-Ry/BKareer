@@ -146,7 +146,7 @@ function MajorResult() {
       <div className="flex-row flex-items-start">
         <div className="font-18 semi-bold-txt left-res-block">Nhóm tính cách MBTI:</div>
         <div className="flex-row flex-space-between right-res-block">
-          <Dropdown className="dropdown dropdown-block" options={mbtiOptions} value={mbtiValue} onChange={handleMbtiChange} placeholder="Chọn nhóm tính tách MBTI" />
+          <Dropdown className="dropdown dropdown-block" options={mbtiOptions} value={mbtiValue} onChange={handleMbtiChange} placeholder="Chọn nhóm tính cách MBTI" />
           <Link className="primary-outline-btn font-18 margin-left-20 flex-self-start" to="/mbti">Kiểm tra ngay</Link>
         </div>
       </div>
@@ -172,7 +172,16 @@ function MajorResult() {
               onSelected(calcOptions[0].id);
             }}
           />
-          <label htmlFor="Weighted Sum" className="font-18">{calcOptions[0].title}</label>
+          <label
+            htmlFor="Weighted Sum"
+            className="font-18"
+            onClick={() => {
+              handleCalcMethodChange(calcOptions[0].title);
+              onSelected(calcOptions[0].id);
+            }}
+          >
+            {calcOptions[0].title}
+          </label>
 
           <input
             type="radio"
@@ -184,7 +193,16 @@ function MajorResult() {
               onSelected(calcOptions[1].id);
             }}
           />
-          <label htmlFor="VIKOR" className="font-18">{calcOptions[1].title}</label>
+          <label
+            htmlFor="VIKOR"
+            className="font-18"
+            onClick={() => {
+              handleCalcMethodChange(calcOptions[1].title);
+              onSelected(calcOptions[1].id);
+            }}
+          >
+            {calcOptions[1].title}
+          </label>
         </div>
       </div>
 

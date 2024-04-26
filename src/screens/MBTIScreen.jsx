@@ -67,7 +67,7 @@ function MBTITest() {
     }
     let data = "";
     if (count < 70) {
-      alert("Bạn chưa hoàn thành bài test");
+      alert("Bạn chưa hoàn thành bài kiểm tra");
       return;
     } else {
       if (e > ii) {
@@ -99,6 +99,7 @@ function MBTITest() {
       console.log(Result.getMbti());
     }
   };
+
   return (
     <>
       <div className="body">

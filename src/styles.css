@@ -651,6 +651,10 @@ body {
   text-decoration: none;
 }
 
+.primary-txt-btn:hover {
+  color: #1a6eaa;
+}
+
 .primary-outline-btn {
   background-color: white;
   color: #358bca;
@@ -661,6 +665,11 @@ body {
   border-style: ridge;
   font-family: Nunito_Sans_10pt_Condensed_Regular;
   text-decoration: none;
+}
+
+.primary-outline-btn:hover {
+  background-color: #358BCA;
+  color: white;
 }
 
 .white-outline-btn {
