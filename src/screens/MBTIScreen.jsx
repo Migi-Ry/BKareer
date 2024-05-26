@@ -3,14 +3,13 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 
 import Card from "../components/Card.jsx";
-import Panel from "../components/Panel.jsx";
+import Panel from "../components/mbtiPanel.jsx";
 import questions from "../database/MBTIQuest";
 import perlist from "../database/MBTIPersonality";
 import Result from "../database/Result.js";
 
 function MBTITest() {
   const list = questions;
-  // const perlist = require("../database/MBTIPersonality");
   const [per, setPer] = useState({});
   const Elist = ["1", "15", "29", "41", "57", "71", "85", "99", "113", "127"];
   const Ilist = ["2", "16", "30", "42", "58", "72", "86", "100", "114", "128"];
@@ -96,7 +95,7 @@ function MBTITest() {
       document.querySelector(".Panel").style.display = "flex";
 
       Result.setMbti(data);
-      console.log(Result.getMbti());
+
     }
   };
 
@@ -110,7 +109,7 @@ function MBTITest() {
         ))}
         
         <div className="flex-row align-center width-fit-content">
-          <Link to={`/majorResult?mbtiResult=${result}`} className="primary-btn font-18 width-45 margin-right-3rem">Quay về nhập kết quả</Link>
+          <Link to={`/majorResult?mbtiResult=${result}`} className="primary-btn font-18 width-45 margin-right-5rem">Quay về nhập kết quả</Link>
           <button className="primary-btn font-18" onClick={result}>Xem kết quả</button>
         </div>
       </div>

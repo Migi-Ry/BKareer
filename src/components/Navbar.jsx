@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import ScrollToTop from "../utils/ScrollToTop"
 
 import HomeScreen from "../screens/HomeScreen";
 import Login from "../screens/authentication/LoginScreen";
@@ -21,17 +22,28 @@ function Navbar() {
     <Router>
       <>
         <nav id="nav">
-          <Link className="appName" to="/">BKareer</Link>
+          <Link className="appName" to="/">
+            BKareer
+          </Link>
           <ul>
-            <li className="font-18"><Link to="/">Trang chủ</Link></li>
-            <li className="font-18"><Link to="/mbti">Trắc nghiệm MBTI</Link></li>
-            <li className="font-18"><Link to="/career">Khám phá năng lực nghề nghiệp</Link></li>
-            <li className="font-18"><Link to="/news">Tin tức</Link></li>
+            <li className="font-18">
+              <Link to="/">Trang chủ</Link>
+            </li>
+            <li className="font-18">
+              <Link to="/mbti">Trắc nghiệm MBTI</Link>
+            </li>
+            <li className="font-18">
+              <Link to="/career">Khám phá năng lực nghề nghiệp</Link>
+            </li>
+            <li className="font-18">
+              <Link to="/news">Tin tức</Link>
+            </li>
             <button className="white-outline-btn font-18">Đăng nhập</button>
           </ul>
         </nav>
       </>
 
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/login" element={<Login />} />
